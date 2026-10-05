@@ -1,0 +1,10 @@
+做题遇到的新方法
+  String.regionMatches()方法
+  str。regionMatches(true,start,word,0,length);
+true的意思是忽略大小写
+start的意思是从str的哪个下标开始比较
+word要比较的另一个字符串
+0是说从word的下标0开始
+length是说比较多少个字符
+
+  String.toLowerCase(Locale.ROOT)是将输入的内容统一转成小写
