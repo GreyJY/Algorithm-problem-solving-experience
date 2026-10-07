@@ -1,1 +1,24 @@
+数据边界可以先规范好，数据量定义空间量
 
+while循环想一直执行的话可以用条件限制结束用break
+ while (true) {
+            int x = sc.nextInt();
+            if (x == 0) {
+                break;
+           a[count] = x;
+            count++;
+        }
+
+可以做到算清楚数组的数据量以及将数据遍历到数组
+
+ for (int i = count - 1; i >= 0; i--) {
+            System.out.print(a[i]);
+            if (i > 0) {
+                System.out.print(" ");
+            }
+        }
+这样可以倒序遍历数组数据，下面的for循环可以一起制造空格
+
+System.out.println();
+        sc.close();
+这俩代码常规作用是直接空格，再释放scanner使用操作
