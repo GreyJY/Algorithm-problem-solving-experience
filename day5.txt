@@ -1,1 +1,13 @@
+根据题目数据可以考虑三重遍历都行，只要数据量不是很大的情况都行
 
+for (int i = x1; i <= x2; i++) {
+                for (int j = y1; j <= y2; j++) {
+                    for (int k = z1; k <= z2; k++) {
+                        if (!cut[i][j][k]) {
+                            cut[i][j][k] = true;
+                            v--;
+                        }
+                    }
+                }
+            }
+计数字可以利用布尔数组用true换false来判断计数，如上；
