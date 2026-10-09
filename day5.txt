@@ -11,3 +11,14 @@ for (int i = x1; i <= x2; i++) {
                 }
             }
 计数字可以利用布尔数组用true换false来判断计数，如上；
+
+遍历每个数字出现次数可以用运算来想
+for (int i = 1; i <= n; i++) {
+    int t = i;
+    while (t > 0) {
+        if (t % 10 == x) {
+            count1++;
+        }
+        t = t / 10;
+    }
+}
