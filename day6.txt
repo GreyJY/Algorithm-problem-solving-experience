@@ -10,7 +10,7 @@ char[] p=n.toCharArray();//字符对象变成字符元素装进字符数组
 char ch = 'a';
 
 if (ch >= 'a' && ch <= 'z') {
-    ch = ch - 'a' + 'A';
+    ch = ch - 'a' + 'A';//ch=ch-32;
 }
 
-printf("%c\n", ch);  // 输出 A
+printf("%c\n", ch);  // 输出 A  字符运算强变成大写
