@@ -2,3 +2,15 @@
 System.out.printf("%02d:%02d%n", h1, h2);
 
 做算法思维可以先把题目的量变成变量，实在不行后面再补，写代码整注释
+
+char[] p=n.toCharArray();//字符对象变成字符元素装进字符数组
+    for(char c:p){//强力遍历
+    System.out.print(Character.toUpperCase(c));//将小写变成大写方法
+    }
+char ch = 'a';
+
+if (ch >= 'a' && ch <= 'z') {
+    ch = ch - 'a' + 'A';
+}
+
+printf("%c\n", ch);  // 输出 A
