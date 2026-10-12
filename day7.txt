@@ -1,1 +1,83 @@
 
+
+从按列想到按行想思维，先得出最多出现次数的字符次数，然后按按照这个数字决定长列，于是可以遍历
+代码呈现效果：
+                            *
+        *                   *
+        *                   *     *   *
+        *                   *     *   *
+*       *     *             *     *   *
+*       *     * *     * *   *     * * *
+*       *   * * *     * *   * *   * * * *
+*     * * * * * *     * * * * *   * * * *     * *
+* * * * * * * * * * * * * * * * * * * * * * * * * *
+A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+
+
+
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(
+                new InputStreamReader(System.in));//输入流方法
+        int[] count = new int[26]; //定义次数数组，记录每个字符出现次数数组   
+        // 1. 读取四行，统计大写字母的出现次数
+        for (int i = 0; i < 4; i++) {//遍历四行的输入方法
+            String line = br.readLine();
+            if (line == null) {
+                break;
+            }
+            for (char c : line.toCharArray()) {
+                if (c >= 'A' && c <= 'Z') {
+                    count[c - 'A']++;//字符加减法，算出每个字符在对应数组位置出现的次数
+                }
+            }
+        }
+        int max = 0;//定义出现的最大次数
+        for (int n : count) {
+            max = Math.max(max, n);
+        }
+        StringBuilder result = new StringBuilder();
+        // 2. 从最高层开始输出
+        for (int h = max; h >= 1; h--) {
+            // 本层最右侧的星号位置
+            int last = 25;
+            while (last >= 0 && count[last] < h) {
+                last--;
+            }
+            for (int j = 0; j <= last; j++) {
+                // 相邻列之间放一个空格
+                if (j > 0) {
+                    result.append(' ');//这个条件的出现是第一个不用跳格
+                }
+                // 当前列：星号或占位空格
+                result.append(count[j] >= h ? '*' : ' ');
+            }
+            result.append('\n');//换行
+        }
+
+        // 3. 输出底部字母
+        for (int i = 0; i < 26; i++) {
+            if (i > 0) {
+                result.append(' ');
+            }
+            result.append((char) ('A' + i));
+        }
+        result.append('\n');
+
+        System.out.print(result);
+    }
+}
+
+append思路用法可以记录每行的拼接例如：
+StringBuilder result = new StringBuilder();
+result.append('*');
+result.append('\n'); // 第一行结束
+result.append('*');
+result.append(' ');
+result.append('*');
+result.append('\n'); // 第二行结束
+System.out.print(result);
