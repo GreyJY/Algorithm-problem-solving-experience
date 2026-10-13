@@ -26,3 +26,15 @@ char c2 = Character.forDigit(n, 10);   // '7'，n 不合法时返回 '\0'
   for (int z : list) {
     System.out.print(z + " ");      // 同一行，空格隔开
 }
+
+配合列表写入方法，以及方法collection
+ for (int i = 0; i < n; i++) {
+            List<Integer> list = new ArrayList<>();
+            for (int j = 0; j < m; j++) {
+                list.add(sc.nextInt());        // 读入这位同学的 m 个评分
+            }
+
+            int max = Collections.max(list);
+            int min = Collections.min(list);
+            list.remove(Integer.valueOf(max)); // 去掉一个最高分
+            list.remove(Integer.valueOf(min)); // 去掉一个最低分
