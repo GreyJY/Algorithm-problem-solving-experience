@@ -1,1 +1,28 @@
+charAt方法，下标跟数组蛮相似的，配合nextLine方法一起
+left[count] = n.charAt(i - 2);    
+right[count] = n.charAt(i + 1); 
 
+字符减去数字字符变成数字
+char c = '7';
+int a = c - '0';  
+int b = Character.getNumericValue(c);  // 7
+数字转字符
+int n = 7;
+char c1 = (char) (n + '0');            // '7'
+char c2 = Character.forDigit(n, 10);   // '7'，n 不合法时返回 '\0'
+
+赋值要有中间变量，来传递值
+
+列表方法，配合加强for循环空格
+  List<Integer> list = new ArrayList<>();
+  for(int i=x;y>=i;i++){
+      if((i% 4 == 0 && i % 100 != 0) || i % 400 == 0){
+          count++;
+      list.add(i);
+      }
+      
+    }
+    System.out.println(count);
+  for (int z : list) {
+    System.out.print(z + " ");      // 同一行，空格隔开
+}
