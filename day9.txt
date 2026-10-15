@@ -1,1 +1,92 @@
+import java.util.Scanner;
 
+public class Main {
+    static class Student {//结构体
+        String name;
+        int age;
+        int score;
+        Student(String name, int age, int score) {
+            this.name = name;
+            this.age = age;
+            this.score = score;
+        }
+    }
+    static Student train(Student s) {
+        return new Student(
+            s.name,
+            s.age + 1,
+            Math.min(600, s.score * 6 / 5)
+        );
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        for (int i = 0; i < n; i++) {
+            Student s = new Student(
+                sc.next(),
+                sc.nextInt(),
+                sc.nextInt()
+            );
+            s = train(s);
+
+            System.out.println(
+                s.name + " " + s.age + " " + s.score
+            );
+        }
+        sc.close();
+    }
+}
+
+
+import java.util.Scanner;
+
+class Student {
+    private final String name;
+    private final long chinese;
+    private final long math;
+    private final long english;
+
+    public Student(String name, long chinese, long math, long english) {
+        this.name = name;
+        this.chinese = chinese;
+        this.math = math;
+        this.english = english;
+    }
+
+    public long getTotalScore() {
+        return chinese + math + english;
+    }
+
+    @Override
+    public String toString() {
+        return name + " " + chinese + " " + math + " " + english;//重写tostring方法，返回输出格式，题目要求格式
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        Student best = null;
+
+        for (int i = 0; i < n; i++) {
+            Student student = new Student(
+                    sc.next(),
+                    sc.nextLong(),
+                    sc.nextLong(),
+                    sc.nextLong()
+            );
+
+            // 总分相同时，保留先输入的同学
+            if (best == null ||
+                    student.getTotalScore() > best.getTotalScore()) {
+                best = student;
+            }
+        }
+
+        System.out.println(best);
+        sc.close();
+    }
+}
