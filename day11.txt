@@ -2,14 +2,18 @@
  Arrays.sort(students, (a, b) -> {
             // 总分不同：总分高的在前
             if (a[2] != b[2]) {
-                return b[2] - a[2];
+                return b[2] - a[2];//减号作为排序的结果，这是从大到小
             }
 
             // 总分相同、语文不同：语文高的在前
             if (a[1] != b[1]) {
-                return b[1] - a[1];
+                return b[1] - a[1];//加if条件来写
             }
 
             // 总分和语文都相同：学号小的在前
             return a[0] - b[0];
         });
+二维数组的运用  
+students[i][0] = i + 1;     // 学号从 1 开始
+            students[i][1] = x;         // 语文成绩
+            students[i][2] = x + y + z; // 总分
