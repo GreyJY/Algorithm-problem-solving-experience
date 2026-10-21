@@ -1,1 +1,2 @@
-
+ pos.put(a, i); // 保存：瓶子数 a 对应位置 i hashmap方法，列表add
+getOrDefault(z, 0)找到key回应对应value
