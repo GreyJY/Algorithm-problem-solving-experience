@@ -1,0 +1,36 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int m = sc.nextInt();
+        int n = sc.nextInt();
+
+        Queue<Integer> queue = new ArrayDeque<>();//队列可以用poll，遵循先进先出原则
+        Set<Integer> memory = new HashSet<>();//不加入重复数字，可以用于去重
+        int count = 0;
+
+        for (int i = 0; i < n; i++) {
+            int word = sc.nextInt();
+
+            // 单词在内存中，队列顺序不变
+            if (memory.contains(word)) {
+                continue;
+            }
+
+            count++;
+
+            // 内存已满，删除最早进入的单词
+            if (queue.size() == m) {
+                int oldest = queue.poll();
+                memory.remove(oldest);
+            }
+
+            queue.offer(word);
+            memory.add(word);
+        }
+
+        System.out.println(count);
+        sc.close();
+    }
+}
