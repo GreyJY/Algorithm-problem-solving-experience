@@ -1,1 +1,25 @@
+  for (char c : s.toCharArray()) {
+            if (c >= '0' && c <= '9') {
+                num = num * 10 + (c - '0');
+            } else if (c == '.') {
+                stack.push(num);
+                num = 0;
+            } else if (c == '@') {
+                break;
+            } else {
+                long b = stack.pop(); // 右操作数
+                long a = stack.pop(); // 左操作数
 
+    switch (c) {
+                    case '+':
+                        stack.push(a + b);
+                        break;
+                    case '-':
+                        stack.push(a - b);//push方法类似add但是是放到栈顶
+                        break;
+                    case '*':
+                        stack.push(a * b);
+                        break;
+                    case '/':
+                        stack.push(a / b);
+                        break;
