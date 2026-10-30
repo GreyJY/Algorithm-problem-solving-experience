@@ -23,3 +23,73 @@
                     case '/':
                         stack.push(a / b);
                         break;
+
+
+// 导入输入、输出相关的类，如 BufferedReader、PrintWriter
+import java.io.*;
+
+// 导入工具类，如 PriorityQueue、StringTokenizer
+import java.util.*;
+
+// 定义 Main 类，提交时类名需要是 Main
+public class Main {
+
+    // 程序入口，程序从这里开始执行
+    // throws IOException 表示将可能发生的输入输出异常交给上层处理
+    public static void main(String[] args) throws IOException {
+
+        // System.in：读取控制台输入
+        // InputStreamReader：把输入的字节转换成字符
+        // BufferedReader：提供缓冲，并支持按行读取
+        BufferedReader br = new BufferedReader(
+                new InputStreamReader(System.in));
+
+        // 创建输出对象，输出到控制台
+        PrintWriter out = new PrintWriter(System.out);
+
+        // 读取第一行，去掉两端空白，再转换成整数
+        // n 表示操作次数
+        int n = Integer.parseInt(br.readLine().trim());
+
+        // 创建优先队列，用来存储整数
+        // 默认是小根堆，最小的元素位于堆顶
+        PriorityQueue<Integer> heap = new PriorityQueue<>();
+
+        // 循环 n 次，每次处理一个操作
+        for (int i = 0; i < n; i++) {
+
+            // 读取一行，并按空格等空白字符拆分
+            // 例如 "1 5" 会被拆成 "1" 和 "5"
+            StringTokenizer st = new StringTokenizer(br.readLine());
+
+            // 取出这一行的第一个字符串，并转换成整数
+            // op 表示操作类型
+            int op = Integer.parseInt(st.nextToken());
+
+            // 如果操作类型是 1，表示插入一个数
+            if (op == 1) {
+
+                // 取出这一行的下一个字符串，转换成整数
+                // 再调用 offer，把这个整数加入堆中
+                heap.offer(Integer.parseInt(st.nextToken()));
+
+            // 如果操作类型是 2，表示查询最小值
+            } else if (op == 2) {
+
+                // peek() 获取堆顶，也就是最小值，但不删除
+                // println() 输出这个值，并换行
+                out.println(heap.peek());
+
+            // 本题只会出现 1、2、3，因此这里对应操作 3
+            } else {
+
+                // 删除堆顶，也就是删除一个最小值
+                // poll() 还会返回被删除的值，这里没有使用返回值
+                heap.poll();
+            }
+        }
+
+        // 将尚未输出的内容全部输出
+        out.flush();
+    }
+}
