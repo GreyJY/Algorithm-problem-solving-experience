@@ -1,1 +1,18 @@
+进制转换题应该先把你要转的进制转换成10进制才能更好转换到你想要的进制
 
+//转换十进制操作
+  long value = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            int digit = (c >= '0' && c <= '9')? c - '0'  : c - 'A' + 10;//三元运算符号：问号前式子是否正确决定取前还是取后
+            value = value * n + digit; //这一步前从前检索
+        }
+
+        // 十进制转目标进制
+        StringBuilder ans = new StringBuilder();
+        do {
+            int digit = (int) (value % m);
+            ans.append(digit < 10? (char) ('0' + digit)  : (char) ('A' + digit - 10));
+            value /= m;
+        } while (value > 0);
+要把结果反转过来就是想要的字符或者数字，输入不管是数字还是字符都行
