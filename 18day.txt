@@ -1,1 +1,24 @@
+import java.util.Scanner;
 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+
+        final int MOD = 100003;
+
+        // dp[i] 表示到达第 i 级台阶的方案数（对 MOD 取模）
+        int[] dp = new int[n + 1];
+        dp[0] = 1;
+
+        for (int i = 1; i <= n; i++) {//这集遍历的是到i层有几个走法
+            // j 表示最后一步走了多少级
+            for (int j = 1; j <= k && j <= i; j++) {//这个j表示的是每次的最后一步
+                dp[i] = (dp[i] + dp[i - j]) % MOD;//累加每次最后一步数量，比如dp[i]=dp[i-1]+dp[i-2]+...+dp[i-j]这种情况
+            }
+        }
+
+        System.out.println(dp[n]);
+    }
+}
