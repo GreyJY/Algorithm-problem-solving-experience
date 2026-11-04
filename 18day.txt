@@ -15,7 +15,7 @@ public class Main {
         for (int i = 1; i <= n; i++) {//这集遍历的是到i层有几个走法
             // j 表示最后一步走了多少级
             for (int j = 1; j <= k && j <= i; j++) {//这个j表示的是每次的最后一步
-                dp[i] = (dp[i] + dp[i - j]) % MOD;//累加每次最后一步数量，比如dp[i]=dp[i-1]+dp[i-2]+...+dp[i-j]这种情况，每次最后一步
+                dp[i] = (dp[i] + dp[i - j]) % MOD;//累加每次最后一步数量，比如dp[i]=dp[i-1]+dp[i-2]+...+dp[i-j]这种情况，每次最后一步，就当作前进
             }
         }
 
