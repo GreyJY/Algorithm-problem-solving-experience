@@ -1,1 +1,12 @@
+低配滑动窗口区间求和
+long min = sum;
+        for (int i = m; i < n; i++) {
+            sum = sum - a[i - m] + a[i];
+            min = Math.min(min, sum);
+        }
 
+   // 枚举后续区间的起点，求和
+        for (int i = 1; i <= n - m; i++) {
+            sum -= a[i - 1];      // 移出前一个数
+            sum += a[i + m - 1];  // 加入后一个数
+            min = Math.min(min, sum);
