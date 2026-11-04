@@ -1,1 +1,10 @@
 
+        for (int a = 1; a <= n; a++) {
+            for (int b = 1; b <= m; b++) {
+                // 高为 a、宽为 b 的图形数量
+                long count = (long) (n - a + 1) * (m - b + 1);
+
+                if (a == b) {
+                    squares += count;
+                } else {
+                    rectangles += count;
