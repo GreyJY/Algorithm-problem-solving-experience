@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int[][] carpets = new int[n][4];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < 4; j++) {
+                carpets[i][j] = sc.nextInt();
+            }
+        }
+
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+
+        // 从最后铺的地毯开始查找
+        for (int i = n - 1; i >= 0; i--) {------->数组边界这块要看清楚
+            int a = carpets[i][0];
+            int b = carpets[i][1];
+            int g = carpets[i][2];
+            int k = carpets[i][3];
+
+            // 边界也算覆盖
+            if (a <= x && x <= a + g &&
+                b <= y && y <= b + k) {------------->坐标里面表示a<=x这样的表示地毯左边界覆盖了点坐标位置，思想要具象化
+                System.out.println(i + 1);
+                return;-------->在跳出任何一个方法，回到上一个方法里，在main方法里面直接结束
+            }
+        }
+
+        System.out.println(-1);
+    }
+}
+      
