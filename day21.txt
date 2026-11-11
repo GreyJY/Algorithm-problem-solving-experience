@@ -27,4 +27,22 @@ public class Main { //熟练运用新的高效率的输入输出流
 数字快速转化字符串String.valueOf(i).contains("7");叠加方法逻辑在字符串里
 或者进位循环等于数字7这一块
 
+基础方法求最大公约数
+static int gcd(int a,int b){
+while(b!=0){
+int temp=a%b;
+a=b;
+b=temp;
+}return a;
+}
 
+素数筛选数组
+static boolean isPrime(int x){
+if(x<2)return false;
+for(int i=2;i*i<=x;i++){
+if(x%i==0){
+return false;
+}
+return true;
+}
+}
