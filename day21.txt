@@ -24,4 +24,7 @@ public class Main { //熟练运用新的高效率的输入输出流
     }
 }
 
-数字
+数字快速转化字符串String.valueOf(i).contains("7");叠加方法逻辑在字符串里
+或者进位循环等于数字7这一块
+
+
