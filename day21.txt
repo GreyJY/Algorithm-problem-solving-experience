@@ -3,3 +3,25 @@ int x=sc.nextInt();//这个方法会停留在换行符在输入输出流的时�
 请记得字符是'',字符串才是" ",JAVA里面识别问题，字符和数字可以用双等于号来判定，字符串调用equals方法
 
 拼接字符串可以用低效率的＋号，也可以调用append方法
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main { //熟练运用新的高效率的输入输出流
+    public static void main(String[] args) throws Exception //要用这个检测异常，去掉编译异常问题{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));//等价于Scanner sc=new Scanner(System.in);,但是高输入输出效率
+        int T = Integer.parseInt(br.readLine().trim()); //等价于int x=sc.nextInt();
+        StringBuilder sb = new StringBuilder();//拼接字符串
+        
+        while (T-- > 0) {
+            StringTokenizer st = new StringTokenizer(br.readLine());//等价于String t=sc.next();//读取字符串外加遇到符号停止
+            String a = st.nextToken();
+            String b = st.nextToken();
+            sb.append(a).append(b).append("\n");//强制换行
+        }
+        System.out.print(sb.toString());//不用tostring也行，但是不是string方法的就要比如泛型的
+    }
+}
+
+数字
