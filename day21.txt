@@ -11,7 +11,7 @@ import java.util.StringTokenizer;
 public class Main { //熟练运用新的高效率的输入输出流
     public static void main(String[] args) throws Exception //要用这个检测异常，去掉编译异常问题{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));//等价于Scanner sc=new Scanner(System.in);,但是高输入输出效率
-        int T = Integer.parseInt(br.readLine().trim()); //等价于int x=sc.nextInt();
+        int T = Integer.parseInt(br.readLine().trim()); //等价于单个int x=sc.nextInt();
         StringBuilder sb = new StringBuilder();//拼接字符串
         
         while (T-- > 0) {
