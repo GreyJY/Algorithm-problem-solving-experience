@@ -4,6 +4,9 @@ int x=sc.nextInt();//这个方法会停留在换行符在输入输出流的时�
 
 拼接字符串可以用低效率的＋号，也可以调用append方法
 
+writer.newLine();输入换行
+        writer.flush();放出缓冲区剩下的东西
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
