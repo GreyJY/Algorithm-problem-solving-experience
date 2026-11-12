@@ -24,6 +24,14 @@ public class Main { //熟练运用新的高效率的输入输出流
     }
 }
 
+  for (int i = 0; i < m; i++) {
+            // 当前行的数字读完后，再读下一行
+            while (!tokens.hasMoreTokens()) {
+                tokens = new StringTokenizer(reader.readLine());//这个不像scanner的nextInt方法那么智能，需要这一步进行判定是否还有元素然后换行
+            }
+            votes[i] = Integer.parseInt(tokens.nextToken());
+        }
+
 数字快速转化字符串String.valueOf(i).contains("7");叠加方法逻辑在字符串里
 或者进位循环等于数字7这一块
 
